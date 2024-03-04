@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { AuthService } from './auth/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,11 @@ import { HeaderComponent } from './shared/components/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'ng-kanban-bis';
+
+  constructor(public authService: AuthService) {
+    
+  }
 }

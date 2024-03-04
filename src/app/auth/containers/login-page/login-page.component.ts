@@ -14,7 +14,7 @@ import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginPageComponent {
   // DI in angular
-  constructor(private router: Router, private autthService: AuthService, private snackbar: MatSnackBar) {}
+  constructor(private router: Router, private authService: AuthService, private snackbar: MatSnackBar) {}
 
   goToRegister() {
     this.router.navigateByUrl('register');
@@ -22,7 +22,7 @@ export class LoginPageComponent {
 
   onLogin(formValue: LoginFormValue): void {
     try{
-      this.autthService.login(formValue.email, formValue.password);
+      this.authService.login(formValue.email, formValue.password);
       this.router.navigateByUrl('home');
     }
     catch(e: any) {

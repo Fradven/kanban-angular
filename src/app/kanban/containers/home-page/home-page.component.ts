@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+  public userName: string|undefined;
 
+  constructor(private authService: AuthService, private router: Router) {
+    this.userName = this.authService.userLoggedFullName;
+  }
 }

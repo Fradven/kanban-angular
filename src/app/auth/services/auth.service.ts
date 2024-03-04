@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { IUserDto } from '../../core/models/user.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { IUserDto } from '../../core/models/user.model';
 export class AuthService {
   private _user: IUserDto | undefined;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   public login(email: string, password: string): void {
     const userExist = this.userService.getUserByEmail(email);
@@ -22,6 +23,7 @@ export class AuthService {
 
   public logout(): void {
     this._user = undefined;
+    this.router.navigateByUrl('/login');
   }
 
   public get isLoggedIn(): boolean {
