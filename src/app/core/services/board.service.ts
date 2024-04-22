@@ -8,6 +8,7 @@ import {AuthService} from "../../auth/services/auth.service";
 })
 export class BoardService {
     private readonly BOARD_DB_KEY = 'boards';
+    private _boardId: string = '';
 
     constructor(private localStorageService: LocalStorageService,
                 private authService: AuthService,) {
@@ -26,6 +27,14 @@ export class BoardService {
     public addNewBoard(newBoard: BoardCategoryModel): void {
         const allBoards: BoardCategoryModel[] = this.getBoardList();
         allBoards.push(newBoard);
-        this.localStorageService.setAll('boards', allBoards);
+        this.localStorageService.setAll(this.BOARD_DB_KEY, allBoards);
+    }
+
+    public setBoardId(id: string): void {
+        this._boardId = id;
+    }
+
+    public getBoardId(): string {
+        return this._boardId;
     }
 }

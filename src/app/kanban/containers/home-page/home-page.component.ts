@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthService} from '../../../auth/services/auth.service';
 import {Router} from '@angular/router';
@@ -26,7 +26,10 @@ export class HomePageComponent {
     public userName: string | undefined;
     public userBoards: BoardCategoryModel[];
 
-    constructor(private authService: AuthService, private router: Router, public dialog: MatDialog, public boardService: BoardService) {
+    constructor(private authService: AuthService,
+                private router: Router,
+                public dialog: MatDialog,
+                public boardService: BoardService) {
         this.userName = this.authService.userLoggedFullName;
         this.userBoards = this.boardService.getCurrentUserBoards();
     }
@@ -46,7 +49,8 @@ export class HomePageComponent {
         });
     }
 
-    public navigateToBoard(boardTitle: string): void {
-        this.router.navigateByUrl(`board/${boardTitle}`)
+    public navigateToBoard(boardId: string): void {
+        this.router.navigateByUrl(`board`)
+        this.boardService.setBoardId(boardId);
     }
 }

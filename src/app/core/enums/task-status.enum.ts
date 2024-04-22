@@ -1,4 +1,4 @@
-enum BoardStatus {
+export enum TaskStatus {
     "todo",
     "standby",
     "in progress",

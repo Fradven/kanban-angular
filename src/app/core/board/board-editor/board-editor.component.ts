@@ -1,6 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle} from '@angular/material/dialog';
-import {LocalStorageService} from "../../services/local-storage.service";
 import {BoardCategoryModel} from "../../models/board-category.model"
 import {AuthService} from "../../../auth/services/auth.service";
 import {MatFormField} from "@angular/material/form-field";
@@ -44,6 +43,7 @@ export class BoardEditor {
 
     onSaveClick(): void {
         const newBoard: BoardCategoryModel = {
+            id: crypto.randomUUID(),
             userEmail: this.authService.userLoggedEmail,
             title: this.title,
             description: this.description,
