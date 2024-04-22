@@ -20,6 +20,7 @@ jsconfig.json
 
 # Also ignore code styles because .editorconfig is used instead.
 .idea/codeStyles/
+.idea
 
 # VSCode
 # https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
@@ -46,7 +47,12 @@ yarn-error.log*
 .husky/_
 .bazelrc.user
 .eslintcache
+.angualr/
+vite/
+ng-kanban-bis/
 
 # Mac OSX Finder files.
 **/.DS_Store
 .DS_Store
+
+package-lock.json

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add New Task</h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Label" [(ngModel)]="label" name="Label">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Description" [(ngModel)]="description" name="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Task Status</mat-label>
+            <mat-select [(value)]="taskStatus">
+                <mat-option *ngFor="let status of taskStatusOptions" [value]="status">{{ status }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()" cdkFocusInitial>Save</button>
+</div>
