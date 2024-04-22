@@ -1,0 +1,16 @@
+.board-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.board-card {
+  width: 300px; /* Set card width */
+  margin-bottom: 16px;
+}
+
+.board-card-image {
+  height: 150px; /* Set card image height */
+  background-size: cover;
+  background-position: center;
+}

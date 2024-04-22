@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-  { path: 'board', component: BoardPageComponent, canActivate: [authGuard]},
+  { path: 'board/:boardTitle', component: BoardPageComponent, canActivate: [authGuard] },
   { path: 'home', component: HomePageComponent, canActivate: [authGuard]},
   { path: '**', component: NotFoundPageComponent },
 ];

@@ -33,4 +33,8 @@ export class AuthService {
   public get userLoggedFullName(): string | undefined {
     return this._user ? this._user?.firstname + ' ' + this._user?.lastname : undefined;
   }
+
+  public get userLoggedEmail(): string | undefined {
+    return this._user?.email;
+  }
 }

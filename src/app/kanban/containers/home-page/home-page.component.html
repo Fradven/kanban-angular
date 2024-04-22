@@ -1,1 +1,16 @@
 <p>{{ userName }}</p>
+<button mat-raised-button (click)="openBoardEditor()">Add Board</button>
+
+<div class="board-cards-container">
+    <mat-card *ngFor="let board of userBoards" class="board-card">
+        <div class="board-card-image" [style.background-image]="'url(' + board.imageUrl + ')'"></div>
+        <mat-card-content>
+            <h2>{{ board.title }}</h2>
+            <p>{{ board.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="navigateToBoard(board.title)">View Board</button>
+<!--            <button mat-button color="primary">View Board</button>-->
+        </mat-card-actions>
+    </mat-card>
+</div>
